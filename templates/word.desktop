@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Word Document...
+Comment=Enter Word name *.docx:
+Type=Link
+URL=source/word.docx
+Icon=libreoffice-oasis-text

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Excel Document...
+Comment=Enter Excel name *.xlsx:
+Type=Link
+URL=source/excel.xlsx
+Icon=libreoffice-oasis-spreadsheet

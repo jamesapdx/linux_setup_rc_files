@@ -1,0 +1,59 @@
+# if you use screen, this setup file makes it much easier to use
+# it creates a "region mode" then you only need press one key for easy operations
+
+startup_message off
+
+# bigger scroll back
+defscrollback 2000
+
+# helps cleans up screen after leaving vim
+altscreen on  
+
+# border colors
+# if you don't like the bordor colors, change 'rendition soi = bw', and 'caption always ...{= rw}...{= bw}'
+# k=black,r=red,g=green,y=yellow,b=blue,m=magenta,c=cyan,w=white
+rendition so = bw 
+caption always "%?%F%{= rw}%:%{= bw}%?[%3n] %t"
+
+# 256 colors
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+# create a secondary escape key
+#excape ^Aa
+#register S ^A
+#bindkey "^[OR" process S  # F3 key
+
+# switch between regions, c-a needed
+bind k focus
+bind j focus prev
+bind ` focus prev
+
+# create new region, switch to it, create new window (console), c-a needed
+bind S eval split focus screen
+bind s eval split focus screen
+bind | eval "split -v" focus screen 
+
+# F2 or c-a r puts screen into region mode.  You only need to press it once for multiple commands
+bindkey "^[OQ" eval "command -c region_mode" 	# enter region mode
+bindkey "^[[[B" eval "command -c region_mode" 	# enter region mode
+bind r eval "command -c region_mode" 			# enter region mode
+# F2 then resize regions using arrow keys, no c-a needed
+bind -c region_mode -k kl eval "resize -h +2" "command -c region_mode"
+bind -c region_mode -k kr eval "resize -h -2" "command -c region_mode"
+bind -c region_mode -k kd eval "resize -v -2" "command -c region_mode"
+bind -c region_mode -k ku eval "resize -v +2" "command -c region_mode"
+# F2 then switch between regions using tab, k and j, no c-a needed
+bind -c region_mode \t    eval "focus"   "command -c region_mode" 	# next region 
+bind -c region_mode k eval "focus"    "command -c region_mode" 		# next region 
+bind -c region_mode j eval "focus prev"  "command -c region_mode" 	# prev region
+bind -c region_mode ` eval "focus prev"  "command -c region_mode" 	#  prev region
+bind -c region_mode s eval "split" "focus" "screen"  "command -c region_mode" # h split
+bind -c region_mode S eval "split" "focus" "screen"  "command -c region_mode" # h split
+bind -c region_mode | eval "split -v" "focus" "screen"  "command -c region_mode" # v split
+bind -c region_mode \ eval "split -v" "focus" "screen"  "command -c region_mode" # v split
+bind -c region_mode x eval "remove"  "command -c region_mode" # remove region
+bind -c region_mode X eval "remove"  "command -c region_mode" # remove region
+bind -c region_mode Q eval "quit"  "command -c region_mode" # quit
+bind -c region_mode q eval "command -c region_mode" # quit

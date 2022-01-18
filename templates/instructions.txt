@@ -1,0 +1,6 @@
+For Linux KDE, this will create "new word doc here,  etc." contextual menu items, just simply copy this folder
+
+copy contents of this folder to:
+	~/.local/share/templates/  or  /usr/share/templates/
+
+source: https://forum.manjaro.org/t/kde-edition-dolphin-create-new-menu-comes-pre-populated-with-libre-office-templates/69261/4
