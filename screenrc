@@ -1,4 +1,4 @@
-# if you use screen, this setup file makes it much easier to use
+# if you use the linux command screen, this setup file makes it much easier to use
 # it creates a "region mode" then you only need press one key for easy operations
 
 startup_message off
